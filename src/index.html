@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self'; script-src 'self'; img-src 'self' data:">
+  <title>Volt Battery</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="titlebar">
+    <div class="titlebar-content">
+      <div class="app-symbol" aria-hidden="true">ϟ</div>
+      <div class="brand">volt<span>battery</span></div>
+      <div class="live-pill"><i></i> В РЕАЛЬНОМ ВРЕМЕНИ</div>
+    </div>
+  </header>
+
+  <main>
+    <div class="eyebrow row"><span>ОБЗОР</span><span id="updated">ОБНОВЛЕНИЕ...</span></div>
+
+    <section class="mac-card" aria-label="Батарея Mac">
+      <div class="card-top row">
+        <div class="device-title">
+          <span class="device-icon mac-icon" aria-hidden="true">
+            <svg viewBox="0 0 28 28"><rect x="3" y="4" width="22" height="16" rx="2.5" fill="none" stroke="currentColor" stroke-width="1.7"/><path d="M1.5 23.5h25" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+          </span>
+          <div><strong>Этот Mac</strong><small>Встроенная батарея</small></div>
+        </div>
+        <span class="status-pill" id="mac-status">Ожидание</span>
+      </div>
+
+      <div class="charge-hero">
+        <div><span class="big-number" id="mac-percent">—</span><span class="percent-sign">%</span></div>
+        <div class="charge-caption" id="mac-caption">Получаем показания батареи</div>
+      </div>
+      <div class="battery-track" role="progressbar" aria-label="Заряд Mac" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"><div id="mac-fill"></div></div>
+
+      <div class="metrics">
+        <div class="metric"><span>НАПРЯЖЕНИЕ</span><strong id="mac-voltage">—</strong></div>
+        <div class="metric"><span>ЗАРЯЖЕНО</span><strong id="mac-remaining">—</strong></div>
+        <div class="metric"><span>ПОЛНАЯ ЁМКОСТЬ</span><strong id="mac-full">—</strong></div>
+        <div class="metric"><span>ПРОЕКТНАЯ ЁМКОСТЬ</span><strong id="mac-design">—</strong></div>
+      </div>
+      <div class="health-line row"><span>Состояние по macOS</span><strong id="mac-health">—</strong></div>
+      <div class="health-line row"><span>Полная / проектная (расчёт)</span><strong id="mac-raw-health">—</strong></div>
+      <div class="health-line row cycles"><span>Циклов зарядки</span><strong id="mac-cycles">—</strong></div>
+    </section>
+
+    <div class="section-heading row">
+      <div><span class="eyebrow">УСТРОЙСТВА РЯДОМ</span><h2>iPhone и iPad <span id="device-count">0</span></h2></div>
+      <button id="refresh" class="refresh-button" title="Обновить" aria-label="Обновить">↻</button>
+    </div>
+
+    <div id="devices" class="devices">
+      <div class="empty-state">
+        <div class="empty-icon">⌁</div>
+        <strong>Ищем устройства</strong>
+        <p>Подключите iPhone или iPad по USB и подтвердите доверие либо включите синхронизацию по Wi‑Fi.</p>
+      </div>
+    </div>
+    <div class="help-note" id="help-note">Данные iPhone и iPad зависят от доступа, предоставленного iOS после сопряжения.</div>
+  </main>
+  <script src="renderer.js"></script>
+</body>
+</html>
